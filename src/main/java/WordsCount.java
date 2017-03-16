@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class WordsCount {
 
-    public Set<Word> countWords(String input) {
+    public TreeSet<Word> countWords(String input) {
         String[] wordsString = input.split(" ");
         List<String> wordsList = new ArrayList<String>();
         for(String word : wordsString){
@@ -13,14 +13,14 @@ public class WordsCount {
                 wordsList.add(word.trim());
             }
         }
-        Set<Word> words = new TreeSet<Word>();
+        TreeSet<Word> words = new TreeSet<Word>();
         for(String wordTemp : wordsList){
             Word existWord = getSameWord(words, wordTemp);
             if(existWord != null){
                 existWord.setCount(existWord.getCount() + 1);
             }else{
                 Word word = new Word();
-                word.setName(wordsString[0]);
+                word.setName(wordTemp);
                 word.setCount(1);
                 words.add(word);
             }

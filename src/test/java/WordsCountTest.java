@@ -3,6 +3,7 @@
 import org.junit.Test;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 
 import static org.junit.Assert.assertNotNull;
@@ -39,6 +40,18 @@ public class WordsCountTest {
             assertThat(word.getName()).isEqualTo("the");
             assertThat(word.getCount()).isEqualTo(2);
         }
+    }
+
+    @Test
+    public void should_return_2_word_given_input_one_the() {
+        String input = "the one";
+        WordsCount wc = new WordsCount();
+        TreeSet<Word> outputs = wc.countWords(input);
+
+        assertThat(outputs.size()).isEqualTo(2);
+        assertThat(outputs.first().getName()).isEqualTo("one");
+        assertThat(outputs.first().getCount()).isEqualTo(1);
+
     }
 
 }

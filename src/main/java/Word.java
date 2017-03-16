@@ -1,7 +1,7 @@
 /**
  * Created by yian on 2017/3/16.
  */
-public class Word implements Comparable{
+public class Word implements Comparable<Word>{
 
     private String name;
 
@@ -23,7 +23,12 @@ public class Word implements Comparable{
         this.count = count;
     }
 
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Word o) {
+        if(this.getCount() < o.getCount()){return 1;}
+        if(this.getCount() == o.getCount()){
+            return this.getName().compareTo(o.getName()) ;
+        };
+        return -1;
     }
+
 }
