@@ -54,4 +54,16 @@ public class WordsCountTest {
 
     }
 
+    @Test
+    public void should_return_3_word_given_input_3one_2the_1she() {
+        String input = "the one one the she one";
+        WordsCount wc = new WordsCount();
+        TreeSet<Word> outputs = wc.countWords(input);
+
+        assertThat(outputs.size()).isEqualTo(3);
+        assertThat(outputs.first().getName()).isEqualTo("one");
+        assertThat(outputs.first().getCount()).isEqualTo(3);
+
+    }
+
 }
