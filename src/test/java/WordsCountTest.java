@@ -28,5 +28,17 @@ public class WordsCountTest {
         }
     }
 
+    @Test
+    public void should_return_1_word_given_input_2_the() {
+        String input = "the the";
+        WordsCount wc = new WordsCount();
+        Set<Word> outputs = wc.countWords(input);
+
+        assertThat(outputs.size()).isEqualTo(1);
+        for (Word word: outputs) {
+            assertThat(word.getName()).isEqualTo("the");
+            assertThat(word.getCount()).isEqualTo(2);
+        }
+    }
 
 }
